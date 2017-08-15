@@ -1,5 +1,5 @@
-public class SingleInstance {
-    private static SingleInstance instance = null;
+public class LazySingleInstance {
+    private static LazySingleInstance instance = null;
     private String name = "";
 
     public String getName() {
@@ -10,31 +10,35 @@ public class SingleInstance {
         this.name = name;
     }
 
-    public static SingleInstance getLanHanInstance() {
+    public static LazySingleInstance getLanHanInstance() {
         if(instance == null) {
-            synchronized (SingleInstance.class) {
+            synchronized (LazySingleInstance.class) {
                 if(instance == null) {
-                    instance = new SingleInstance();
+                    instance = new LazySingleInstance();
                 }
             }
         }
         return instance;
     }
 
-    public static synchronized SingleInstance getLanHanInstance2 () {
+    public static synchronized LazySingleInstance getLanHanInstance2 () {
         if(instance == null) {
-            instance = new SingleInstance();
+            instance = new LazySingleInstance();
         }
         return instance;
     }
 
     public static void main(String[] args) {
-        SingleInstance instance1 = SingleInstance.getLanHanInstance2();
+        LazySingleInstance instance1 = LazySingleInstance.getLanHanInstance2();
         instance1.setName("instance1");
-        SingleInstance instance2 = SingleInstance.getLanHanInstance2();
+        LazySingleInstance instance2 = LazySingleInstance.getLanHanInstance2();
         instance2.setName("instance2");
 
         System.out.println(instance1.getName());
         System.out.println(instance2.getName());
     }
 }
+/*
+instance2
+instance2
+*/
