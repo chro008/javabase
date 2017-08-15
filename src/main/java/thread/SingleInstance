@@ -1,0 +1,39 @@
+public class SingleInstance {
+    private static SingleInstance instance = null;
+    private String name = "";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static SingleInstance getInstance() {
+        if(instance == null) {
+            synchronized (SingleInstance.class) {
+                if(instance == null) {
+                    instance = new SingleInstance();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static void main(String[] args) {
+        SingleInstance instance1 = SingleInstance.getInstance();
+        instance1.setName("instance1");
+        SingleInstance instance2 = SingleInstance.getInstance();
+        instance2.setName("instance2");
+
+        System.out.println(instance1.getName());
+        System.out.println(instance2.getName());
+    }
+}
+
+/*
+打印结果如下
+instance2
+instance2
+*/
