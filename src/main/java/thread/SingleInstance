@@ -10,7 +10,7 @@ public class SingleInstance {
         this.name = name;
     }
 
-    public static SingleInstance getInstance() {
+    public static SingleInstance getLanHanInstance() {
         if(instance == null) {
             synchronized (SingleInstance.class) {
                 if(instance == null) {
@@ -21,19 +21,20 @@ public class SingleInstance {
         return instance;
     }
 
+    public static synchronized SingleInstance getLanHanInstance2 () {
+        if(instance == null) {
+            instance = new SingleInstance();
+        }
+        return instance;
+    }
+
     public static void main(String[] args) {
-        SingleInstance instance1 = SingleInstance.getInstance();
+        SingleInstance instance1 = SingleInstance.getLanHanInstance2();
         instance1.setName("instance1");
-        SingleInstance instance2 = SingleInstance.getInstance();
+        SingleInstance instance2 = SingleInstance.getLanHanInstance2();
         instance2.setName("instance2");
 
         System.out.println(instance1.getName());
         System.out.println(instance2.getName());
     }
 }
-
-/*
-打印结果如下
-instance2
-instance2
-*/
