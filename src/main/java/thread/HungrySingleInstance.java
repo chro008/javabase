@@ -1,3 +1,5 @@
+package thread;
+
 public class HungrySingleInstance {
 
     private static HungrySingleInstance instance = new HungrySingleInstance();

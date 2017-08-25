@@ -1,12 +1,14 @@
+package thread;
+
 public class LazySingleInstance {
     private static LazySingleInstance instance = null;
     private String name = "";
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -21,7 +23,7 @@ public class LazySingleInstance {
         return instance;
     }
 
-    public static synchronized LazySingleInstance getLanHanInstance2 () {
+    private static synchronized LazySingleInstance getLanHanInstance2() {
         if(instance == null) {
             instance = new LazySingleInstance();
         }

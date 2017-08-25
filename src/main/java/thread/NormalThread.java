@@ -1,4 +1,4 @@
-package default;
+package thread;
 
 /**
  * Created by lixiaoming on 2017/6/23.
@@ -8,7 +8,7 @@ public class NormalThread extends Thread {
     private volatile int count = 5;
     private String name;
 
-    public NormalThread(String name) {
+    private NormalThread(String name) {
         this.name = name;
     }
 

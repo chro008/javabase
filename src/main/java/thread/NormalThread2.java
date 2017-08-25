@@ -1,4 +1,4 @@
-package default;
+package thread;
 /**
  * Created by lixiaoming on 2017/6/23.
  */
