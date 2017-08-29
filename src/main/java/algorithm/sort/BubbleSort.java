@@ -21,19 +21,11 @@ public class BubbleSort {
         for (int i = arr.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {           //没循环一次 都将下标从0  到 i 的这些数 最大的 放到了最后一位
                 if (arr[j] > arr[j + 1]) {
-                    exchange(arr, j, j + 1);
+                    CommonUtil.exchange(arr, j, j + 1);
                 }
             }
         }
     }
-
-
-    private static void exchange(int[] arr, int index1, int index2) {
-        int temp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = temp;
-    }
-
 
 }
 /*
