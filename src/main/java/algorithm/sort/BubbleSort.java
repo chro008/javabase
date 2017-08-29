@@ -1,20 +1,25 @@
 package algorithm.sort;
 
+import util.CommonUtil;
+import util.MathUtil;
+
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = {10, 5, 2, 7, 2, 8, 9, 1, 6, 5, 3, 4};
-        System.out.println("resource is:");
-        println(arr);
+        int[] arr = MathUtil.getRandomArr(12, 100);
 
-        sort(arr);
+        System.out.println("before sort is:");
+        CommonUtil.show(arr);
+
+        bubbleSort(arr);
+
         System.out.println("after sort is:");
-        println(arr);
+        CommonUtil.show(arr);
     }
 
-    private static void sort(int[] arr) {
+    private static void bubbleSort(int[] arr) {
         for (int i = arr.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i; j++) {           //没循环一次 都将下标从0  到 i 的这些数 最大的 放到了最后一位
                 if (arr[j] > arr[j + 1]) {
                     exchange(arr, j, j + 1);
                 }
@@ -22,12 +27,6 @@ public class BubbleSort {
         }
     }
 
-    private static void println(int[] arr) {
-        for (int anArr : arr) {
-            System.out.printf(anArr + "\t");
-        }
-        System.out.println();
-    }
 
     private static void exchange(int[] arr, int index1, int index2) {
         int temp = arr[index1];
@@ -38,8 +37,8 @@ public class BubbleSort {
 
 }
 /*
-resource is:
-10	5	2	7	2	8	9	1	6	5	3	4
+before sort is:
+65	36	30	69	18	1	88	13	67	92	74	7
 after sort is:
-1	2	2	3	4	5	5	6	7	8	9	10
+1	7	13	18	30	36	65	67	69	74	88	92
  */
