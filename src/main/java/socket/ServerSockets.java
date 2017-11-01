@@ -83,3 +83,15 @@ public class ServerSockets {
     }
 
 }
+/*
+服务器启动成功，正在监听...
+connect:0,address is:127.0.0.1
+Server:accept msg:hel
+Server:accept msg:help
+Server:accept msg:sing
+Server:accept msg:eat
+Server:accept msg:drink
+Server:accept msg:play
+
+Process finished with exit code 1
+*/
