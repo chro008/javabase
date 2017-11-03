@@ -1,3 +1,5 @@
+package socket;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -67,4 +69,3 @@ bye
 
 Process finished with exit code 0
 */
-
